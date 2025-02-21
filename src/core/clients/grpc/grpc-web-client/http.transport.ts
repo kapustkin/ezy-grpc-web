@@ -97,6 +97,8 @@ class NodeHttp implements grpc.Transport {
       path: parsedUrl.path,
       headers,
       method: 'POST',
+      insecure: true,
+      rejectUnauthorized: false
     };
     if (parsedUrl.protocol === 'https:') {
       this.request = https.request(
